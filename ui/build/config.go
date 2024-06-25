@@ -816,6 +816,8 @@ func (c *configImpl) parseArgs(ctx Context, args []string) {
 		} else if arg == "--skip-kati" {
 			// TODO: remove --skip-kati once module builds have been migrated to --song-only
 			c.skipKati = true
+		} else if arg == "--skip-soong" {
+			c.skipSoong = true
 		} else if arg == "--soong-only" {
 			c.skipKati = true
 			c.skipKatiNinja = true
