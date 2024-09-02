@@ -90,7 +90,7 @@ func init() {
 	// D8 invocations are shorter lived, so we restrict their JIT tiering relative to R8.
 	// Note that the `-JXX` prefix syntax is specific to the R8/D8 invocation wrappers.
 	exportedVars.ExportStringListStaticVariable("D8Flags", append([]string{
-		"-JXmx4096M",
+		"-JXmx6144M",
 		"-JXX:+TieredCompilation",
 		"-JXX:TieredStopAtLevel=1",
 		"-JDcom.android.tools.r8.emitRecordAnnotationsInDex",
@@ -98,7 +98,7 @@ func init() {
 		"-JDcom.android.tools.r8.emitRecordAnnotationsExInDex",
 	}, dexerJavaVmFlagsList...))
 	exportedVars.ExportStringListStaticVariable("R8Flags", append([]string{
-		"-JXmx4096M",
+		"-JXmx6144M",
 		"-JDcom.android.tools.r8.emitRecordAnnotationsInDex",
 		"-JDcom.android.tools.r8.emitPermittedSubclassesAnnotationsInDex",
 		"-JDcom.android.tools.r8.emitRecordAnnotationsExInDex",
