@@ -319,6 +319,11 @@ func NewConfig(ctx Context, args ...string) Config {
 
 	// Default matching ninja
 	ret.parallel = runtime.NumCPU()
+	if jobs, ok := ret.environ.GetInt("SOONG_JOBS"); ok && jobs > 0 {
+		ret.parallel = jobs
+	} else if jobs, ok := ret.environ.GetInt("BUILD_JOBS"); ok && jobs > 0 {
+		ret.parallel = jobs
+	}
 	ret.keepGoing = 1
 
 	ret.totalRAM = detectTotalRAM(ctx)
